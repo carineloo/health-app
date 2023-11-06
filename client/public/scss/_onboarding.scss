@@ -1,0 +1,88 @@
+/******************* onboarding *******************/
+
+.onboarding {
+    width: 100vw;
+    height: 150vh}
+
+.onboarding h3 {
+    margin: 0;
+}
+
+.onboarding-content {
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    min-width: 40vw;
+    transform: translate(-50%, -50%);
+    background-color: #fefdfd;
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.close-section {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#close {
+    border: none;
+    font-size: 22px;
+    transition: .5s;
+    background-color: #fefdfd;
+    line-height: 23px;
+}
+
+#close:hover {
+    color: #F45B69;
+}
+
+#close span {
+    font-size: 19px;
+    display: flex;
+    flex-direction: column;
+}
+
+.first-steps {
+    border: 1px dashed #f45b684d;
+    border-radius: 15px;
+    margin: .5rem;
+    padding: 1.5rem;
+}
+
+.instruction {
+    color: black;
+    text-align: center;
+    margin: 1rem 1.25rem;
+}
+
+.response-section {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 1.5rem 0 1rem 0;
+}
+
+.response {
+    width: 55%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.response-section .response button {
+    font-size: 22px;
+    color: black;
+    border-radius: 15px;
+    border: 3px solid #C5D8D1;
+    padding: .75rem 1.25rem;
+    margin: .5rem;
+    transition: .5s;
+}
+
+.response-section .response button:hover {
+    border: 3px solid #F45B69;
+}
+
+.onboarding button:focus {
+    outline: none;
+}
+

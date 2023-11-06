@@ -1,0 +1,113 @@
+/******************* nav bar *******************/
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    font-size: 1.125rem;
+    background-color: #1A1E23;
+    /*  #5e738d */
+    padding: 1.5rem 2rem;
+    z-index: 999;
+}
+
+.navbar-expand-lg .navbar-collapse {
+    flex-direction: row-reverse;
+}
+
+.navbar-nav a {
+    text-decoration: none;
+    padding: 1px 5px;
+    transition-duration: .5s;
+}
+
+.navbar-nav a:hover {
+    /* color:#8b9db4; */
+    color: #F45B69;
+}
+
+.navbar-nav span {
+    color: rgb(150, 152, 154);
+    margin: 0 2px 0 1px;
+}
+
+#log-button {
+    margin: 0 15px;
+    padding: 0 10px;
+    color: black;
+    background-color: #8b9db4;
+    border-radius: 8px;
+    transition: .5s;
+}
+
+#log-button:hover {
+    background-color: #F45B69;
+}
+
+#log-button:disabled {
+    background-color: #45566c;
+}
+
+.navbar-nav .icon {
+    margin-left: 6px;
+}
+
+#nav-title a {
+    position: absolute;
+    display: flex;
+    left: 25px;
+    border: none;
+}
+
+#nav-title-acronym {
+    margin-left: 15px;
+    font-style: italic;
+}
+
+/******************* responsive interfaces *******************/
+
+
+/* lg size breakpoint */
+@media (max-width: 991px) {
+    .navbar {
+        padding-left: 2rem;
+    }
+    .navbar-nav span {
+        display: none;
+    }
+    .navbar-collapse .navbar-nav {
+        position: absolute;
+        right: .75rem;
+        background-color: #525961c2;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        padding: 1rem 1rem 1rem 2rem;
+        /* margin-top: 1rem; */
+    }
+    #nav-title-acronym {
+        display: none;
+    }
+    #log-button {
+        margin-left: 0;
+    }
+}
+
+
+@media (max-width: 690px) {
+    nav a {
+        padding: 0rem 0.3rem;
+    }
+}
+
+
+/* iPhone 12 Pro */
+
+@media (max-width: 390px) {
+    nav {
+        font-size: 16px;
+    }
+    nav a {
+        padding: 0rem 0.05rem;
+    }
+}

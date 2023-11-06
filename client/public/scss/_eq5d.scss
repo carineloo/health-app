@@ -1,0 +1,241 @@
+/******************* eq5d *******************/
+
+.eq5d .container {
+    padding: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(206, 207, 216);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 7px;
+}
+
+.eq5d h5 {
+    font-weight: bold;
+}
+
+.boxes {
+    height: fit-content;
+    width: 55%;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 7px;
+    border-radius: 5px;
+    margin: 1rem 0;
+    padding: 1rem;
+    background-color: #F4EDEA;
+}
+
+.descriptions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    padding-right: 2rem;
+    line-height: 2.25rem;
+    border-bottom: .25px solid rgba(0, 0, 0, 0.3);
+}
+
+.descriptions:hover {
+    border-radius: 5px;
+}
+
+.sections {
+    border: 2px solid #697380;
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.mobility h5 {
+    color: #366697;
+}
+
+.mobility .descriptions:hover {
+    background-color: #3667974b;
+}
+
+.self-care h5 {
+    color: #F45B69;
+}
+
+.self-care .descriptions:hover {
+    background-color: #f45b685e;
+}
+
+.activities h5 {
+    color: #689986;
+}
+
+.activities .descriptions:hover {
+    background-color: #C5D8D1;
+}
+
+.discomfort h5 {
+    color: purple;
+}
+
+.discomfort .descriptions:hover {
+    background-color: rgba(128, 0, 128, 0.2);
+}
+
+.anxiety h5 {
+    color: #FF785A;
+}
+
+.anxiety .descriptions:hover {
+    background-color: #ff785a5f;
+}
+
+.activities i {
+    font-weight: normal;
+    font-size: 17px;
+}
+
+#eq5d-submit {
+    display: flex;
+    justify-content: center;
+    margin: 1.5rem 0 2rem 0;
+}
+
+#eq5d-submit input,
+.user-eq5d button,
+.eq5dResponses .selectors button, #edit-btn {
+    padding: .5rem 1rem;
+    border: 2px solid #F45B69;
+    border-radius: 8px;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: bold;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 7px;
+    transition: .3s;
+}
+
+#eq5d-submit input[type="submit"]:hover,
+.user-eq5d button:hover,
+.eq5dResponses .selectors button:hover,  #edit-btn:hover {
+    color: #F45B69;
+}
+
+.user-eq5d #old-data,
+.eq5dResponses .selectors button, #edit-btn {
+    border: 2px solid #c5d8d1;
+    text-transform: none;
+}
+
+#eq5d-submit input[type="submit"]:active,
+.user-eq5d button:active, .eq5dResponses .selectors button:active, #edit-btn:active {
+    background-color: #8b9db4;
+}
+
+.user-eq5d {
+    font-size: 18px;
+}
+
+.user-eq5d ul {
+    line-height: 2rem;
+    padding-left: 0;
+    list-style-type: none;
+    display: flex;
+}
+
+.user-eq5d li {
+    margin: .75rem 1rem;
+    padding: .5rem .9rem;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.user-eq5d li:first-child {
+    background-color: #3667974b;
+}
+
+.user-eq5d li:nth-child(2) {
+    background-color: #f45b685e;
+}
+
+.user-eq5d li:nth-child(3) {
+    background-color: #C5D8D1;
+}
+
+.user-eq5d li:nth-child(4) {
+    background-color: rgba(128, 0, 128, 0.2);
+}
+
+.user-eq5d li:nth-child(5) {
+    background-color: #ff785a5f;
+}
+
+
+/******************* eq5d: user responses *******************/
+
+.eq5dResponses {
+    margin-top: 90px;
+    padding: 1rem;
+    font-size: 18px;
+}
+
+.react-datepicker__day--disabled {
+    cursor: not-allowed;
+}
+
+.eq5dResponses ul {
+    line-height: 2rem;
+    padding-left: 0;
+    list-style-type: none;
+}
+
+.eq5dResponses li {
+    margin: .75rem 0;
+    padding: .5rem .9rem;
+    width: 584px;
+    border-radius: 5px;
+}
+
+.eq5dResponses li:first-child {
+    background-color: #3667974b;
+}
+
+.eq5dResponses li:nth-child(2) {
+    background-color: #f45b685e;
+}
+
+.eq5dResponses li:nth-child(3) {
+    background-color: #C5D8D1;
+}
+
+.eq5dResponses li:nth-child(4) {
+    background-color: rgba(128, 0, 128, 0.2);
+}
+
+.eq5dResponses li:nth-child(5) {
+    background-color: #ff785a5f;
+}
+
+
+.eq5dResponses button{
+    margin-bottom: 1.5rem;
+}
+
+#select-btn {
+    margin-left: 1rem;
+    box-shadow: none;
+    border: 1px solid #12263a;
+    padding: .4rem .5rem;
+}
+
+.selectors #back-btn {
+    float: right;
+}
+
+#edit-btn {
+    box-shadow: none;
+    border: 1px solid #12263a;
+    padding: .4rem .5rem;
+}
+
+@media (max-width: 1180px) {
+    .user-eq5d ul {
+        line-height: 1.75rem;
+    }
+    .user-eq5d li {
+        margin: 0 .25rem;
+    }
+}
+

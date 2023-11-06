@@ -1,0 +1,72 @@
+/******************* chatbot *******************/
+
+.chatbot .container {
+    position: absolute;
+    top: 10vh;
+}
+
+.chatbot .row {
+    width: 100vw;
+    padding: .75rem;
+}
+
+img {
+    width: 46px;
+    margin: 0;
+}
+
+.display-symptoms {
+    height: 85vh;
+    padding: .75rem;
+    border-radius: 10px;
+}
+
+.symptoms h4 {
+    font-weight: bold;
+}
+
+#total {
+    font-size: 17px;
+}
+
+#symptom {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.symptoms ol {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0px;
+}
+
+.symptoms li {
+    background-color: #C5D8D1;
+    padding: .5rem .75rem;
+    margin: .3rem;
+    width: fit-content;
+    border-radius: 15px;
+}
+
+.chatbot-btns {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.chatbot-btn1 {
+    font-weight: bold;
+    font-size: 20px;
+    background-color: #F4EDEA;
+    margin: 1rem;
+    padding: 1rem;
+    border: none;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px;
+    transition: .5s;
+}
+
+.chatbot-btn1:hover {
+    color: #F45B69;
+}

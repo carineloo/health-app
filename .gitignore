@@ -1,0 +1,12 @@
+.vscode
+package-lock.json
+
+# Ignore .DS_Store files created by macOS
+.DS_Store
+
+# Ignore the "node_modules" directory in any directory
+**/node_modules/
+
+# Hide sensitive information
+server/.env
+
