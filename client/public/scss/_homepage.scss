@@ -2,116 +2,89 @@
 
 .home {
     height: 100vh;
-}
-
-.home-contents {
-    margin-top: 88px;
-    height: 80vh;
+    margin-top: 30px; // 88
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
     align-items: center;
 }
 
-.home-top h2:nth-child(2) {
-    margin: 0;
+.home-contents {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+    width: 100%;
+}
+
+.home-contents .row:first-child {
+    width: 65%;
+    padding: 5rem 3rem;
+    background-color: gainsboro;
+    border-radius: 5px;
+}
+
+.home-contents .row:nth-child(2) {
+    width: 30%;
 }
 
 .home-top {
     font-size: 30px;
-    text-align: center;
-    margin-top: 2rem;
-    padding: 3rem;
-    border: 3px solid gainsboro;
-    border-radius: 15px 30px;    
-    -webkit-box-shadow: -27px 26px 6px 0px rgba(39, 41, 41, 0.1);
-    -moz-box-shadow: -27px 26px 6px 0px rgba(39, 41, 41, 0.1);
-    box-shadow: -27px 26px 6px 0px rgba(39, 41, 41, 0.1);
-}
-
-.row-button {
-    color: #F45B69;
+    margin: 4rem 0;
+    border-radius: 15px 30px;
 }
 
 .row-button #main {
-    color: #F45B69;
+    color: #12263A;
+    background-color: #fff;
     font-weight: bold;
-    font-size: 38px;
-    margin: 2.5rem;
-    padding: 2rem 2.25rem;
-    border: 5px solid #F4EDEA;
-    border-radius: 15px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    background-color: #fefdfd;
-    text-decoration: none;
-    transition: .8s;
-}
-
-.row-button #main2 {
-    color: #F45B69;
-    font-weight: bold;
-    font-size: 38px;
+    font-size: 45px;
+    text-align: left;
+    padding: 4rem 2rem 4rem 3rem;
+    border: none;
+    border-radius: 5px;
+    box-shadow: -27px 26px 6px 0px rgba(39, 41, 41, 0.1);
+    transition: .6s;
 }
 
 .row-button #main:hover {
-    color: #FF785A;
-    -webkit-box-shadow: -27px 26px 6px 0px rgba(39, 41, 41, 0.1);
-    -moz-box-shadow: -27px 26px 6px 0px rgba(39, 41, 41, 0.1);
-    box-shadow: -27px 26px 6px 0px rgba(39, 41, 41, 0.1);
+    color: #F45B69;
+    box-shadow: none;
 }
 
-.tabs-row .col {
-    margin: 0 1.75rem;
-    border: 5px solid white;
-    -webkit-box-shadow: -27px 26px 6px 0px rgba(39, 41, 41, 0.1);
-    -moz-box-shadow: -27px 26px 6px 0px rgba(39, 41, 41, 0.1);
-    box-shadow: -27px 26px 6px 0px rgba(39, 41, 41, 0.1);
-    border-radius: 5px;
+ion-col {
+    font-size: 20px;
+    background-color: #12263A;
+    border: solid 2px #fff;
+    border-radius: 10px;
+    color: #fff;
     display: flex;
     justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1rem 1.5rem;
     cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     transition: .5s;
 }
 
-.tabs-row button {
-    border: none;
-    padding: 3rem 1rem;
-    background-color: #F4EDEA;
-    color: black;
-    font-size: 22px;
-    font-weight: 700;
-}
-
-.tabs-row .col:hover {
-    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.35);
+ion-col:hover {
+    -webkit-box-shadow: -27px 26px 6px 0px rgba(39, 41, 41, 0.1);
+    -moz-box-shadow: -27px 26px 6px 0px rgba(39, 41, 41, 0.1);
+    box-shadow: -27px 26px 6px 0px rgba(39, 41, 41, 0.1);
 }
 
 
 /* iPad portrait */
 
-@media (max-width: 820px) {
+@media (max-width: 1180px) {
     .home-contents {
         margin-top: 2rem;
         height: 60vh;
         font-size: 20px;
     }
-    .home-contents p {
-        font-size: 25px;
+    .home-contents .row:first-child {
+        width: 70%;
     }
-    .row-button a {
-        font-size: 26px;
-    }
-}
-
-@media (max-width: 690px) {
-    nav a {
-        padding: 0rem 0.3rem;
-    }
-    .home-contents {
-        margin-top: 8rem;
-        font-size: 20px;
-    }
-    .tabs-row a {
+    ion-col {
         font-size: 18px;
     }
 }
@@ -120,26 +93,29 @@
 /* iPhone 12 Pro */
 
 @media (max-width: 390px) {
+    .home,
     .home-contents {
-        margin-top: 4.5rem;
-        /* top */
-        height: 80vh;
-        padding: 1.5rem;
+        display: block;
+        background-color: gainsboro;
     }
-    .home-contents p {
-        font-size: 19px;
+    .home-top {
+        margin-bottom: 1rem;
     }
-    .row-button a {
-        font-size: 20px;
+    .home-contents .row:first-child {
+        margin-left: .15rem;
     }
-    .row {
-        flex-direction: column;
+    .home-contents .row:first-child,
+    .row:nth-child(2) {
+        width: 100%;
+        padding: 1rem;
     }
-    .tabs-row .col {
+    ion-col {
+        margin: .25rem 0;
+    }
+    .row-button #main {
+        position: absolute;
+        font-size: 25px;
+        padding: 2rem;
         margin: 1rem 0;
-    }
-    .tabs-row a {
-        font-size: 16px;
-        padding: 1.5rem .25rem;
     }
 }

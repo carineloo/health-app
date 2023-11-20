@@ -64,6 +64,7 @@ const MyAccount = () => {
                     )}
                 </>
             ) : (
+                // first time signing up
                 user === null ? loadMessage() : <AccountForm />
             )}
         </div>

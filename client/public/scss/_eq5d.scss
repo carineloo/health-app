@@ -88,42 +88,6 @@
     font-size: 17px;
 }
 
-#eq5d-submit {
-    display: flex;
-    justify-content: center;
-    margin: 1.5rem 0 2rem 0;
-}
-
-#eq5d-submit input,
-.user-eq5d button,
-.eq5dResponses .selectors button, #edit-btn {
-    padding: .5rem 1rem;
-    border: 2px solid #F45B69;
-    border-radius: 8px;
-    text-transform: uppercase;
-    font-size: 18px;
-    font-weight: bold;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 7px;
-    transition: .3s;
-}
-
-#eq5d-submit input[type="submit"]:hover,
-.user-eq5d button:hover,
-.eq5dResponses .selectors button:hover,  #edit-btn:hover {
-    color: #F45B69;
-}
-
-.user-eq5d #old-data,
-.eq5dResponses .selectors button, #edit-btn {
-    border: 2px solid #c5d8d1;
-    text-transform: none;
-}
-
-#eq5d-submit input[type="submit"]:active,
-.user-eq5d button:active, .eq5dResponses .selectors button:active, #edit-btn:active {
-    background-color: #8b9db4;
-}
-
 .user-eq5d {
     font-size: 18px;
 }
@@ -208,26 +172,15 @@
     background-color: #ff785a5f;
 }
 
-
-.eq5dResponses button{
-    margin-bottom: 1.5rem;
-}
-
-#select-btn {
-    margin-left: 1rem;
-    box-shadow: none;
-    border: 1px solid #12263a;
-    padding: .4rem .5rem;
-}
-
 .selectors #back-btn {
     float: right;
+    margin-right: 2rem;
 }
 
 #edit-btn {
-    box-shadow: none;
-    border: 1px solid #12263a;
-    padding: .4rem .5rem;
+  display: flex;
+  justify-content: start;
+  margin-top: 2rem;
 }
 
 @media (max-width: 1180px) {
@@ -238,4 +191,3 @@
         margin: 0 .25rem;
     }
 }
-

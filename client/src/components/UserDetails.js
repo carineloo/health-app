@@ -28,7 +28,7 @@ const UserDetails = () => {
         {user &&
             <div className="container columns">
                 <div className="row">
-                    <div className="bits col-3">
+                    <div className="bits col-2">
                         <p>Name:</p>
                         <p>Date of Birth:</p>
                         <p>Email:</p>
@@ -36,7 +36,7 @@ const UserDetails = () => {
                     </div>
                     <div className="bits col-3">
                         <p>{user.first_name} {user.last_name}</p>
-                        <p>{user.d_day_dob} {user.d_month_dob} {user.d_year_dob}</p>
+                        <p>{user.d_day_dob}/{user.d_month_dob}/{user.d_year_dob}</p>
                         <p>{user.email}</p>
                         <p>{user.phone}</p>
                     </div>

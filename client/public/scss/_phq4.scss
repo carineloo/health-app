@@ -1,0 +1,41 @@
+.phq4 {
+  margin: 1rem 0;
+  font-size: 18px;
+}
+
+.phq4 th {
+  text-align: center;
+}
+
+th:first-child{
+text-align: left;
+}
+
+.phq4 th {
+  width: 11%;
+}
+
+.phq4 th:first-child {
+  width: 46%;
+}
+
+.phq4 tbody td:first-child {
+  width: 5%;
+  text-align: center;
+}
+
+.phq4 td button {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid white;
+}
+
+.phq4 tfoot td {
+  text-align: center;
+  font-weight: bold;
+  padding: 10px;
+  border: 1px solid white;
+  background-color: #fcf4f4;
+}
+
+

@@ -10,3 +10,20 @@ body {
     background-color: #F4EDEA;
     overflow-x: none;
 }
+
+.submit-btn {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+ion-button {
+  --background: #efefef;
+  --color: black;
+  --border-width: 1px;
+  --border-style: solid;
+  --border-color: black;
+  --background-hover: #F45B69;
+  --transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  font-size: 18px;
+}

@@ -24,7 +24,7 @@ const ChatDisplaySymptoms = ({ user, userResponses, currentStep }) => {
     }
 
     const toTraining = () => {
-        if (true) pageNavigate('/trainingvideos')
+        pageNavigate('/trainingvideos')
         window.location.reload()
     }
 

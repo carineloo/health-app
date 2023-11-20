@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 import Onboarding from '../components/Onboarding'
 import { useCookies } from 'react-cookie'
 import { useNavigate } from 'react-router-dom'
+import { IonCol, IonGrid, IonRow } from '@ionic/react';
 import axios from 'axios'
 
 
@@ -61,10 +62,23 @@ const Home = () => {
                                 duration: 1,
                             }} initial={{ opacity: 0 }}>
                                 {!authToken ? <>
-                                    <h2>Hi there, welcome.</h2>
-                                    <h2>Let me teach you about FAITH. But first, let's get to know you.</h2></> : <h2>FAITH will always be here for you.</h2>}
+                                    <h1>Hi there, welcome.</h1>
+                                    <h1>My name is Harper, let me show you around!</h1></> : <h2>Harper will always be here for you.</h2>}
                             </motion.div>
                         </div>
+
+                        <motion.div animate={{ opacity: 1 }} transition={{
+                            delay: 1.75, ease: "linear",
+                            duration: .5,
+                        }} initial={{ opacity: 0 }}>
+                            <IonGrid fixed={true}>
+                                <IonRow className='ion-no-padding'>
+                                    <IonCol size="12" sizeMd='3'>{authToken ? <div onClick={toTraining}>Take me to the training videos. </div> : <div onClick={handleClick}>Sign up or log in to see the training videos. </div>}</IonCol>
+                                    <IonCol size="12" sizeMd='4' offset-md="1">I’m experiencing symptoms. <br /> (enter symptoms)</IonCol>
+                                    <IonCol size="12" sizeMd='3' offset-md="1">How can I be more helpful?</IonCol>
+                                </IonRow>
+                            </IonGrid>
+                        </motion.div>
                     </div>
 
                     <div className="row row-button">
@@ -72,31 +86,10 @@ const Home = () => {
                             delay: 1, ease: "linear",
                             duration: .5,
                         }} initial={{ opacity: 0 }}>
-                            {user && authToken ? <em id="main2">Hey {user.first_name}, you are logged in!</em> : <button id="main" onClick={handleClick}>CLICK HERE TO BEGIN.</button>}
+                            {user && authToken ? <div id="main">Hey {user.first_name}, you are logged in!</div> : <button id="main" onClick={handleClick}>CLICK HERE TO <em>BEGIN</em>.</button>}
                             {/* when clicked, showBoarding is true, so this appears */}
                             {showBoarding && <Onboarding setShowBoarding={setShowBoarding} signUp={signUp} />}
                         </motion.div>
-                    </div>
-
-                    <div className="row">
-                        <div className="container">
-                            <motion.div animate={{ opacity: 1 }} transition={{
-                                delay: 1.75, ease: "linear",
-                                duration: .5,
-                            }} initial={{ opacity: 0 }}>
-                                <div className="row tabs-row">
-                                    <div className="col">
-                                        {authToken ? <button onClick={toTraining}>Take me to the training videos. </button> : <button onClick={handleClick}>Sign up or log in to see the training videos. </button>}
-                                    </div>
-                                    <div className="col">
-                                        <button href="">I’m experiencing symptoms. <br/> (enter symptoms)</button>
-                                    </div>
-                                    <div className="col">
-                                        <button href="">How can I be more helpful?</button>
-                                    </div>
-                                </div>
-                            </motion.div>
-                        </div>
                     </div>
                 </div>
             </div>

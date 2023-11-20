@@ -13,7 +13,7 @@ app.use(cors())
 app.use(express.json())
 
 app.get('/', (req, res) => {
-    res.json('Hello FAITH!')
+    res.json('Hello Harper!')
 })
 
 // sign up: onboarding
@@ -279,6 +279,26 @@ app.put('/eq5d_db', async (req, res) => {
     } finally {
         await client.close();
     }
+})
+
+// add phq4 to db
+app.post('/phq4', async (req, res) => {
+  const client = new MongoClient(uri)
+  const userId = req.body.userId
+  const itemsRated = req.body.itemsRated
+  const totalScore = req.body.totalScore
+
+  try {
+      await client.connect()
+      const database = client.db('app-data')
+      const phq4 = database.collection('phq4')
+
+      const struct = { user_id: userId, phq4: itemsRated, totalScore: totalScore }
+      const insertForm = await phq4.insertOne(struct)
+      res.send(insertForm)
+  } finally {
+      await client.close()
+  }
 })
 
 

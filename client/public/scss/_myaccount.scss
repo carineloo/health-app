@@ -113,6 +113,7 @@
 .my-contents {
     display: flex;
     justify-content: center;
+    padding: 0 2rem;
 }
 
 .myaccount h5 {
@@ -120,25 +121,15 @@
     font-size: 21px;
 }
 
-.my-contents .profile {
-    padding: 0;
-    margin: 0;
-}
-
 .my-contents section {
-    display: flex;
-    flex-direction: column;
+    max-width: 85%;
     background-color: #fcf4f4;
     padding: 2rem 2.5rem;
-    margin: 1rem 0;
+    margin: 1rem;
     border: 5px solid white;
     border-radius: 5px;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 10px;
     font-size: 16px;
-}
-
-.my-contents .details:first-child {
-    margin-right: 10px;
 }
 
 .columns {
@@ -161,27 +152,6 @@
     font-weight: bold;
 }
 
-#edit-button {
-    display: flex;
-    justify-content: flex-end;
-}
-
-#edit-button button {
-    margin-top: 10px;
-    padding: 2px 10px;
-    border: 2px solid #8b9db4;
-    border-radius: 5px;
-    transition: .5s;
-}
-
-#edit-button button:hover {
-    border: 2px solid #F45B69;
-}
-
-#edit-button button:active {
-    background-color: #8b9db4;
-}
-
 .edit-acc-form .account-form {
     padding-top: 1.5rem;
 }
@@ -193,15 +163,19 @@
     top: 7rem;
 }
 
-
-/* lg size breakpoint */
-
-@media (max-width: 1180px) {
-    .my-contents .col-6 {
-       width: 100%;
-    }
-
-    .my-contents section {
-        padding: 1.75rem 2rem;
-    }
+.list-md {
+    margin-left: 1rem;
+    padding: 0;
+    height: 60vh;
+    overflow:visible;
 }
+
+ion-list.list-inset  {
+    overflow:visible;
+    cursor: pointer;
+}
+
+.my-contents .active {
+    color: #F45B69;
+}
+ 
