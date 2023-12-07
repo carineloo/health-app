@@ -22,7 +22,7 @@ const User_EQ5D = () => {
 
   const getEQ5D = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/eq5d_db', {
+      const response = await axios.get('//'+process.env.REACT_APP_API_HOST+'/eq5d_db', {
         params: { userId }
       })
 

@@ -50,7 +50,7 @@ const PHQ4 = () => {
       // extract statement: rating pairs
       const itemsRated = survey.map(({ statement, rating }) => ({ statement, rating }));
       // Send the data to the backend
-      await axios.post('http://localhost:8080/phq4', { userId, itemsRated, totalScore: getGrandTotal() });
+      await axios.post('//'+process.env.REACT_APP_API_HOST+'/phq4', { userId, itemsRated, totalScore: getGrandTotal() });
       console.log('PHQ4 data sent successfully');
       console.log(itemsRated)
     } catch (error) {

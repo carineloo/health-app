@@ -14,7 +14,7 @@ const EQ5D_Data = () => {
 
     const getEQ5D = async () => {
         try {
-            const response = await axios.get('http://localhost:8080/eq5d_db', {
+            const response = await axios.get('//'+process.env.REACT_APP_API_HOST+'/eq5d_db', {
                 params: { userId }
             })
             setEq5dResponses(response.data)

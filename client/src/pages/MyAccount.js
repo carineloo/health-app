@@ -19,7 +19,7 @@ const MyAccount = () => {
 
     const getUser = async () => {
         try {
-            const response = await axios.get('http://localhost:8080/user', {
+            const response = await axios.get('//'+process.env.REACT_APP_API_HOST+'/user', {
                 params: { userId }
             })
             setUser(response.data)
