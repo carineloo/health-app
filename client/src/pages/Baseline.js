@@ -58,7 +58,7 @@ const Baseline = (showBoarding) => {
                             </div>}
                         </div>
                         <div className='col'>
-                            <Chatbot setUserResponses={setUserResponses} handleUserResponse={handleUserResponse} currentStep={currentStep} />
+                            <Chatbot setUserResponses={setUserResponses} handleUserResponse={handleUserResponse} />
                         </div>
                     </div>
                 </div>

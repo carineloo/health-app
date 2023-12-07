@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import UserResponses_EQ5D from '../components/UserResponses_EQ5D'
 
+// page to view previos eq5d forms according to date
+
 const EQ5D_Data = () => {
 
     const [cookies] = useCookies(['user'])

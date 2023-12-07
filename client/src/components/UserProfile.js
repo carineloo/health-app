@@ -1,13 +1,34 @@
 import UserDetails from '../components/UserDetails'
 import UserSymptoms from "../components/UserSymptoms"
 import User_EQ5D from '../components/User_EQ5D'
-import { useState } from 'react'
+import React, { useState, useEffect } from 'react';
 import { IonItem, IonLabel, IonList, IonButton } from '@ionic/react';
+import { useCookies } from 'react-cookie'
+import axios from 'axios'
 import PHQ4 from './PHQ4';
 
 const UserProfile = ({ handleClick }) => {
 
-  const [section, setDisplaySection] = useState("main");
+  const [section, setDisplaySection] = useState("main")
+  const [cookies, setCookie, removeCookie] = useCookies(['user'])
+  const [user, setUser] = useState(null)
+
+  const userId = cookies.UserId
+
+  const getUser = async () => {
+    try {
+      const response = await axios.get('http://localhost:8080/user', {
+        params: { userId }
+      })
+      setUser(response.data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    getUser()
+  }, [])
 
   const handleSection = (section) => {
     setDisplaySection(section);
@@ -19,8 +40,8 @@ const UserProfile = ({ handleClick }) => {
       <div className="my-contents">
         <IonList inset={true} lines="full">
           <IonItem>
-            <IonLabel onClick={() => handleSection("main")} className={section === "main" ? "active" : ""}
-            >This page</IonLabel>
+          {user && <IonLabel onClick={() => handleSection("main")} className={section === "main" ? "active" : ""}
+            >Welcome, {user.first_name}</IonLabel>}
           </IonItem>
           <IonItem>
             <IonLabel onClick={() => handleSection("details")} className={section === "details" ? "active" : ""}
@@ -41,7 +62,7 @@ const UserProfile = ({ handleClick }) => {
           {/* {section === null && section === "main"} */}
           {section === "main" && <section className="col">
             <h5>Accounts page</h5>
-            <p>View your digital health on the left!</p>
+            {user && <p>Hi, {user.first_name}. You can view your access you digital health on the left!</p>}
           </section>}
           {section === "details" && <section className="col">
             <h5>Your details</h5>
@@ -59,7 +80,7 @@ const UserProfile = ({ handleClick }) => {
             <User_EQ5D />
           </section>}
           {section === "phq4" && <section className="col">
-            <h5>PHQ-4: The FOUR-ITEM patient health questionaire for anxiety and depression</h5>
+            <h5>PHQ-4: The FOUR-ITEM patient health questionaire</h5>
             <PHQ4 />
           </section>}
         </div>
