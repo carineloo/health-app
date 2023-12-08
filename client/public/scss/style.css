@@ -186,15 +186,15 @@ ion-button {
 }
 
 .row-button #main {
-  color: #12263A;
-  background-color: #fff;
+  color: #F45B69;
+  background-color: #12263A;
   font-weight: bold;
   font-size: 45px;
   text-align: left;
   padding: 4rem 2rem 4rem 3rem;
   border: none;
   border-radius: 5px;
-  box-shadow: -27px 26px 6px 0px rgba(39, 41, 41, 0.1);
+  box-shadow: -27px 26px 6px 0px rgba(39, 41, 41, 0.3);
   transition: .6s;
 }
 
@@ -205,15 +205,15 @@ ion-button {
 
 ion-col {
   font-size: 20px;
-  background-color: #12263A;
-  border: solid 2px #fff;
+  background-color: #F4EDEA;
+  border: solid 1px #fff;
+  font-size: 20px;
   border-radius: 10px;
-  color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 1rem 1.5rem;
+  padding: 1.8rem 2rem;
   cursor: pointer;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   transition: .5s;

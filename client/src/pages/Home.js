@@ -73,9 +73,9 @@ const Home = () => {
                         }} initial={{ opacity: 0 }}>
                             <IonGrid fixed={true}>
                                 <IonRow className='ion-no-padding'>
-                                    <IonCol size="12" sizeMd='3'>{authToken ? <div onClick={toTraining}>Take me to the training videos. </div> : <div onClick={handleClick}>Sign up or log in to see the training videos. </div>}</IonCol>
-                                    <IonCol size="12" sizeMd='4' offset-md="1">I’m experiencing symptoms. <br /> (enter symptoms)</IonCol>
-                                    <IonCol size="12" sizeMd='3' offset-md="1">How can I be more helpful?</IonCol>
+                                    <IonCol size="12" sizeMd='3'>{authToken ? <div onClick={toTraining}>Take me to the training videos. </div> : <div onClick={handleClick}>Log in to view training videos. </div>}</IonCol>
+                                    <IonCol size="12" sizeMd='4' offset-md="1">Report symptoms</IonCol>
+                                    <IonCol size="12" sizeMd='3' offset-md="1">Feedback</IonCol>
                                 </IonRow>
                             </IonGrid>
                         </motion.div>
@@ -86,9 +86,9 @@ const Home = () => {
                             delay: 1, ease: "linear",
                             duration: .5,
                         }} initial={{ opacity: 0 }}>
-                            {user && authToken ? <div id="main">Hey {user.first_name}, you are logged in!</div> : <button id="main" onClick={handleClick}>CLICK HERE TO <em>BEGIN</em>.</button>}
+                            {user && authToken ? <div id="main">Hey {user.first_name}, you are logged in!</div> : <button id="main" onClick={handleClick}>Click to <em>BEGIN!</em></button>}
                             {/* when clicked, showBoarding is true, so this appears */}
-                            {showBoarding && <Onboarding setShowBoarding={setShowBoarding} signUp={signUp} />}
+                            {showBoarding && <Onboarding setShowBoarding={setShowBoarding} signUp={signUp}/>}
                         </motion.div>
                     </div>
                 </div>

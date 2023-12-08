@@ -202,6 +202,7 @@ const Onboarding = ({ setShowBoarding, signUp }) => {
                 </div>
                 <p>{message}</p>
               </form>
+              <p>Haven't made an account? Sign up <button>here</button></p>
             </div>
           </div>
         )}
