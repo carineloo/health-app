@@ -498,13 +498,13 @@ hr {
 }
 
 .myaccount h3 {
-  padding: 2rem 0 0 3rem;
+  padding: 2rem 0 0 4rem;
 }
 
 .my-contents {
   display: flex;
   justify-content: center;
-  padding: 0 2rem;
+  padding: 0 3rem;
 }
 
 .myaccount h5 {
@@ -513,7 +513,7 @@ hr {
 }
 
 .my-contents section {
-  max-width: 85%;
+  max-width: 95%;
   background-color: #fcf4f4;
   padding: 2rem 2.5rem;
   margin: 1rem;
@@ -536,6 +536,15 @@ hr {
 
 .bits p {
   padding: .5rem 0;
+  font-size: 18px;
+  line-height: 2rem;
+}
+
+#texts p {
+  background-color: #dee5ee;
+  width: 80%;
+  padding: .5rem 1rem;
+  border-radius: 10px;
 }
 
 .bits:first-child,
@@ -618,6 +627,7 @@ img {
   margin: .3rem;
   width: fit-content;
   border-radius: 15px;
+  font-size: 18px;
 }
 
 .chatbot-btns {
@@ -862,14 +872,64 @@ th:first-child {
 .phq4 td button {
   width: 100%;
   padding: 10px;
-  border: 1px solid white;
+  border: 1px solid black;
+}
+
+.phq4 td button:hover {
+  background-color: aliceblue;
 }
 
 .phq4 tfoot td {
   text-align: center;
   font-weight: bold;
   padding: 10px;
-  border: 1px solid white;
+  border: 3px solid white;
   background-color: #fcf4f4;
+}
+
+.phq4 p {
+  color: green;
+  text-align: center;
+  margin: 1rem;
+}
+
+.roseQ {
+  margin: 3rem;
+  padding: 3rem 9rem;
+}
+
+.rose-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.rose-question {
+  display: flex;
+  justify-content: space-between;
+}
+
+.roseQ label {
+  font-size: 18px;
+  line-height: 3rem;
+}
+
+.roseQ select {
+  min-width: 100px;
+  max-width: 100px;
+  max-height: 48px;
+  text-align: center;
+  margin-left: 1rem;
+}
+
+.roseQ p {
+  text-align: center;
+  color: red;
+  margin: 1rem;
+}
+
+@media (max-width: 1180px) {
+  .roseQ {
+    padding: 1rem;
+  }
 }
 /*# sourceMappingURL=style.css.map */

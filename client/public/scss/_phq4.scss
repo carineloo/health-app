@@ -27,15 +27,23 @@ text-align: left;
 .phq4 td button {
   width: 100%;
   padding: 10px;
-  border: 1px solid white;
+  border: 1px solid black;
+}
+
+.phq4 td button:hover {
+  background-color: aliceblue;
 }
 
 .phq4 tfoot td {
   text-align: center;
   font-weight: bold;
   padding: 10px;
-  border: 1px solid white;
+  border: 3px solid white;
   background-color: #fcf4f4;
 }
 
-
+.phq4 p {
+  color: green;
+  text-align: center;
+  margin: 1rem;
+}

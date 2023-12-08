@@ -5,8 +5,8 @@ import { IonButton } from '@ionic/react';
 
 const PHQ4 = () => {
 
+  const [message, setMessage] = useState(null)
   const [cookies] = useCookies(['user'])
-
   const [survey, setSurvey] = useState([
     { id: 1, statement: 'Feeling nervous, anxious or on edge', rating: null },
     { id: 2, statement: 'Not being able to stop or control worrying', rating: null },
@@ -50,8 +50,10 @@ const PHQ4 = () => {
       // extract statement: rating pairs
       const itemsRated = survey.map(({ statement, rating }) => ({ statement, rating }));
       // Send the data to the backend
-      await axios.post('//'+process.env.REACT_APP_API_HOST+'/phq4', { userId, itemsRated, totalScore: getGrandTotal() });
-      console.log('PHQ4 data sent successfully');
+      const response = await axios.post('//'+process.env.REACT_APP_API_HOST+'/phq4', { userId, itemsRated, totalScore: getGrandTotal() });
+      if (response.status === 200) {
+        setMessage("Thank you, your response has been submitted.")
+      }
       console.log(itemsRated)
     } catch (error) {
       console.error('Error:', error);
@@ -109,6 +111,7 @@ const PHQ4 = () => {
       <div className="submit-btn">
         <IonButton type="submit" onClick={postPHQ4} disabled={!selected}>Submit</IonButton>
       </div>
+      <p>{message}</p>
     </div>
   );
 };
