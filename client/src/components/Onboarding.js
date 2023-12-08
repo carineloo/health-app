@@ -93,7 +93,7 @@ const Onboarding = ({ setShowBoarding, signUp }) => {
       }
 
       // sign up, or login, pass to backend
-      const response = await axios.post(`http://localhost:8080/${signUp ? 'signup' : 'login'}`, { email, password })
+      const response = await axios.post('//'+process.env.REACT_APP_API_HOST+`/${signUp ? 'signup' : 'login'}`, { email, password })
 
       setCookie('AuthToken', response.data.token)
       setCookie('UserId', response.data.userId)

@@ -58,7 +58,7 @@ const EQ5D_Form = () => {
     console.log('submitted')
     e.preventDefault()
     try {
-      const response = await axios.post('http://localhost:8080/eq5d', {
+      const response = await axios.post('//'+process.env.REACT_APP_API_HOST+'/eq5d', {
         userId,
         formData: filteredForm
       })

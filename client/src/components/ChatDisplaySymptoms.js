@@ -17,7 +17,7 @@ const ChatDisplaySymptoms = ({ user, userResponses, currentStep }) => {
         console.log("userid:", userId, "symptoms:", symptom)
 
         try {
-            await axios.post('http://localhost:8080/symptom', { userId, symptom: userResponses });
+            await axios.post('//'+process.env.REACT_APP_API_HOST+'/symptom', { userId, symptom: userResponses });
         } catch (error) {
             console.error('Error sending symptoms to the backend:', error);
         }

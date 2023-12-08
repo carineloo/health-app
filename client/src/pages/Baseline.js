@@ -16,7 +16,7 @@ const Baseline = (showBoarding) => {
 
     const getUser = async () => {
         try {
-            const userResponse = await axios.get('http://localhost:8080/user', {
+            const userResponse = await axios.get('//'+process.env.REACT_APP_API_HOST+'/user', {
                 params: { userId }
             })
             setUser(userResponse.data)

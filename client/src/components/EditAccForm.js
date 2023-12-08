@@ -11,7 +11,7 @@ const EditAccForm = ({ user }) => {
         console.log('submitted')
         e.preventDefault()
         try {
-            const response = await axios.put('http://localhost:8080/user', { formData })
+            const response = await axios.put('//'+process.env.REACT_APP_API_HOST+'/user', { formData })
             const success = response.status === 200
             if (success) navigate('/myaccount')
             window.location.reload()

@@ -68,7 +68,7 @@ const Edit_EQ5D_Form = ({ selectedResponse, dateSelected }) => {
     console.log('submitted')
     e.preventDefault()
     try {
-      const response = await axios.put('http://localhost:8080/eq5d_db', {
+      const response = await axios.put('//'+process.env.REACT_APP_API_HOST+'/eq5d_db', {
         userId,
         formData,
         date: dateSelected,
