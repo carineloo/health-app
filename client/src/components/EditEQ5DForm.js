@@ -3,7 +3,7 @@ import { useCookies } from 'react-cookie'
 import axios from 'axios'
 import { IonButton } from '@ionic/react';
 
-const Edit_EQ5D_Form = ({ selectedResponse, dateSelected }) => {
+const EditEQ5DForm = ({ selectedResponse, dateSelected }) => {
 
   const [cookies] = useCookies(['user'])
   const [formData, setFormData] = useState({
@@ -183,4 +183,4 @@ const Edit_EQ5D_Form = ({ selectedResponse, dateSelected }) => {
   )
 }
 
-export default Edit_EQ5D_Form
+export default EditEQ5DForm

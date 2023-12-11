@@ -2,7 +2,7 @@ import Nav from '../components/Nav'
 import { useCookies } from 'react-cookie'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import UserResponses_EQ5D from '../components/UserResponses_EQ5D'
+import DisplayEQ5DResponses from '../components/DisplayEQ5DResponses'
 
 // page to view previos eq5d forms according to date
 
@@ -31,7 +31,7 @@ const EQ5D_Data = () => {
 
     return (<>
         <Nav authToken={authToken} />
-        <UserResponses_EQ5D eq5dResponses={eq5dResponses}/>
+        <DisplayEQ5DResponses eq5dResponses={eq5dResponses}/>
     </>)
 }
 export default EQ5D_Data

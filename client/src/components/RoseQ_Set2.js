@@ -69,7 +69,7 @@ const RoseQ_Set2 = ({ partB, setPartB }) => {
       {(partB.question3 === 'true' || partB.question4 === 'true') && (<>
         <div className="rose-question">
           <label>
-            <li>What did you do if you get it while you were walking?</li>
+            5. What did you do if you get it while you were walking?
           </label>
           <select value={partB.question5} onChange={(e) => handlePartBChange('question5', e.target.value)}>
             <option value="" disabled>Select</option>
@@ -80,7 +80,7 @@ const RoseQ_Set2 = ({ partB, setPartB }) => {
 
         <div className="rose-question">
           <label>
-            <li>If you would stand still, what happened to it?</li>
+            6. If you would stand still, what happened to it?
           </label>
           <select value={partB.question6} onChange={(e) => handlePartBChange('question6', e.target.value)}>
             <option value="" disabled>Select</option>
@@ -91,7 +91,7 @@ const RoseQ_Set2 = ({ partB, setPartB }) => {
 
         <div className="rose-question">
           <label >
-            <li>How soon? 10 min or less/More than 10 min</li>
+            7. How soon? - 10 min or less/More than 10 min
           </label>
           <select value={partB.question7} onChange={(e) => handlePartBChange('question7', e.target.value)}>
             <option value="" disabled>Select</option>

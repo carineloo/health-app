@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
-const ChatDisplaySymptoms = ({ user, userResponses, currentStep }) => {
+const PostSymptoms = ({ user, userResponses, currentStep }) => {
 
     const [showBtn, setShowBtn] = useState(false)
 
@@ -11,11 +11,7 @@ const ChatDisplaySymptoms = ({ user, userResponses, currentStep }) => {
 
     const postSymptom = async () => {
         setShowBtn(true) // allow training btn
-        const symptom = {
-            symptoms: userResponses
-        }
-        console.log("userid:", userId, "symptoms:", symptom)
-
+       
         try {
             await axios.post('//'+process.env.REACT_APP_API_HOST+'/symptom', { userId, symptom: userResponses });
         } catch (error) {
@@ -49,4 +45,4 @@ const ChatDisplaySymptoms = ({ user, userResponses, currentStep }) => {
     );
 }
 
-export default ChatDisplaySymptoms;
+export default PostSymptoms;

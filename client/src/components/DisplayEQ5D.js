@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { IonButton } from '@ionic/react';
 
-const User_EQ5D = () => {
+const DisplayEQ5D = () => {
 
   const [cookies] = useCookies(['user'])
   const [eq5d, setEq5d] = useState(null)
@@ -71,4 +71,4 @@ const User_EQ5D = () => {
   )
 }
 
-export default User_EQ5D
+export default DisplayEQ5D

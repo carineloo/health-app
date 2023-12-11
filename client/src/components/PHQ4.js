@@ -49,7 +49,7 @@ const PHQ4 = () => {
     try {
       // extract statement: rating pairs
       const itemsRated = survey.map(({ statement, rating }) => ({ statement, rating }));
-      // Send the data to the backend
+      // send the data to the backend
       const response = await axios.post('//'+process.env.REACT_APP_API_HOST+'/phq4', { userId, itemsRated, totalScore: getGrandTotal() });
       if (response.status === 200) {
         setMessage("Thank you, your response has been submitted.")

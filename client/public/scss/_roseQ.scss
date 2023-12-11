@@ -1,40 +1,52 @@
 .roseQ {
-  margin: 3rem;
-  padding: 3rem 9rem;
+    padding: 5rem 8rem;
+    background-color: #12263A;
+    height: 125vh;
 }
 
 .rose-container {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
+}
+
+#rose-title {
+  color: white;
+}
+
+.rose-container .partA, .partB {
+    margin: 1rem;
+    padding: 2rem;
+    border-radius: 10px;
+    background-color: aliceblue;
 }
 
 .rose-question {
-  display: flex;
-  justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 
 .roseQ label {
-  font-size: 18px;
-  line-height: 3rem;
-  // margin-right: 7rem;
+    font-size: 18px;
+    line-height: 3rem;
+    // margin-right: 7rem;
 }
 
 .roseQ select {
-  min-width: 100px;
-  max-width: 100px;
-  max-height: 48px;
-  text-align: center;
-  margin-left: 1rem;
+    min-width: 100px;
+    max-width: 100px;
+    max-height: 48px;
+    text-align: center;
+    margin-left: 1rem;
 }
 
 .roseQ p {
-  text-align: center;
-  color: red;
-  margin: 1rem;
+    text-align: center;
+    color: red;
+    margin: 1rem;
 }
 
 @media (max-width: 1180px) {
-  .roseQ {
-    padding: 1rem;
-  }
+    .roseQ {
+        padding: 1rem;
+    }
 }

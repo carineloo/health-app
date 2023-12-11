@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Nav from '../components/Nav'
 import Chatbot from '../components/Chatbot';
-import ChatDisplaySymptoms from '../components/ChatDisplaySymptoms.js';
+import PostSymptoms from '../components/PostSymptoms.js';
 import axios from 'axios'
 import { useCookies } from 'react-cookie'
 
@@ -54,7 +54,7 @@ const Baseline = (showBoarding) => {
                     <div className='row'>
                         <div className='col'>
                             {user && <div className='display-symptoms'>
-                                <ChatDisplaySymptoms user={user} userResponses={userResponses} currentStep={currentStep} />
+                                <PostSymptoms user={user} userResponses={userResponses} currentStep={currentStep} />
                             </div>}
                         </div>
                         <div className='col'>

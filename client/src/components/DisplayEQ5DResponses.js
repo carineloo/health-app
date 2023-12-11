@@ -2,10 +2,10 @@ import { useNavigate } from 'react-router-dom'
 import React, { useState, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import Edit_EQ5D_Form from './Edit_EQ5D_Form';
+import EditEQ5DForm from './EditEQ5DForm';
 import { IonButton } from '@ionic/react';
 
-const UserResponses_EQ5D = ({ eq5dResponses }) => {
+const DisplayEQ5DResponses = ({ eq5dResponses }) => {
 
   const [dateSelected, setDateSelected] = useState(null);
   const [selectedResponse, setSelectedResponse] = useState(null); // Selected response for editing
@@ -65,10 +65,10 @@ const UserResponses_EQ5D = ({ eq5dResponses }) => {
           <div className="submit-btn" id="edit-btn">
             <IonButton onClick={() => handleEdit(response)} style={{ textTransform: 'capitalize' }}>Edit my response</IonButton>
           </div>
-          {selectedResponse && <Edit_EQ5D_Form selectedResponse={selectedResponse} dateSelected={dateSelected} />}
+          {selectedResponse && <EditEQ5DForm selectedResponse={selectedResponse} dateSelected={dateSelected} />}
         </div>
       ))}
     </div>
   )
 }
-export default UserResponses_EQ5D
+export default DisplayEQ5DResponses

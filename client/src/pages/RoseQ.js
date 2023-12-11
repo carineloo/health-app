@@ -30,7 +30,7 @@ const RoseQ = () => {
 
   const handleSubmit = async (e) => {
     try {
-      const response = await axios.post('http://localhost:8080/rose', { userId, partA, partB });
+      const response = await axios.post('//'+process.env.REACT_APP_API_HOST+'/rose', { userId, partA, partB });
       console.log("submitted")
       const success = response.status === 200
       if (success) navigate('/myaccount')
@@ -43,15 +43,21 @@ const RoseQ = () => {
   return (
     <div className="roseQ">
       <div className="rose-container">
-        <h3>Part A:</h3>
-        <RoseQ_Set1 partA={partA} setPartA={setPartA} /> <br />
+        <h3 id="rose-title">Please answer the questions below for your chest pain symptom.</h3>
 
-        <h3>Part B:</h3>
-        <RoseQ_Set2 partB={partB} setPartB={setPartB} />
+        <div className="partA">
+          <h3>Part A:</h3>
+          <RoseQ_Set1 partA={partA} setPartA={setPartA} />
+        </div>
+
+        <div className="partB">
+          <h3>Part B:</h3>
+          <RoseQ_Set2 partB={partB} setPartB={setPartB} />
+        </div>
       </div>
 
       <div className="submit-btn">
-        <IonButton type="submit" onClick={handleSubmit}>Submit</IonButton>
+        <IonButton type="submit" onClick={handleSubmit}>Confirm</IonButton>
       </div>
       <p>{message}</p>
     </div>

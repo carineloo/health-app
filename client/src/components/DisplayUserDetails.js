@@ -2,7 +2,7 @@ import { useCookies } from 'react-cookie'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
-const UserDetails = () => {
+const DisplayUserDetails = () => {
 
     const [user, setUser] = useState(null)
     const [cookies, setCookie, removeCookie] = useCookies(['user'])
@@ -51,4 +51,4 @@ const UserDetails = () => {
         }</>
     )
 }
-export default UserDetails
+export default DisplayUserDetails

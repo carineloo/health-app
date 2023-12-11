@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
-const UserSymptoms = () => {
+const DisplaySymptoms = () => {
 
   const [cookies, setCookie, removeCookie] = useCookies(['user'])
   const [symptom, setSymptom] = useState(null)
@@ -66,4 +66,4 @@ const UserSymptoms = () => {
   )
 }
 
-export default UserSymptoms
+export default DisplaySymptoms

@@ -1,6 +1,6 @@
-import UserDetails from '../components/UserDetails'
-import UserSymptoms from "../components/UserSymptoms"
-import User_EQ5D from '../components/User_EQ5D'
+import DisplayUserDetails from '../components/DisplayUserDetails'
+import DisplaySymptoms from "../components/DisplaySymptoms"
+import DisplayEQ5D from '../components/DisplayEQ5D'
 import React, { useState, useEffect } from 'react';
 import { IonItem, IonLabel, IonList, IonButton } from '@ionic/react';
 import { useCookies } from 'react-cookie'
@@ -17,7 +17,7 @@ const UserProfile = ({ handleClick }) => {
 
   const getUser = async () => {
     try {
-      const response = await axios.get('http://localhost:8080/user', {
+      const response = await axios.get('//'+process.env.REACT_APP_API_HOST+'/user', {
         params: { userId }
       })
       setUser(response.data)
@@ -66,18 +66,18 @@ const UserProfile = ({ handleClick }) => {
           </section>}
           {section === "details" && <section className="col">
             <h5>Your details</h5>
-            <UserDetails />
+            <DisplayUserDetails />
             <div className="submit-btn">
               <IonButton onClick={handleClick}>Edit</IonButton>
             </div>
           </section>}
           {section === "symptoms" && <section className="col">
             <h5>Your current symptoms</h5>
-            <UserSymptoms />
+            <DisplaySymptoms />
           </section>}
           {section === "eq5d" && <section className="col">
             <h5>Your EQ5D today</h5>
-            <User_EQ5D />
+            <DisplayEQ5D />
           </section>}
           {section === "phq4" && <section className="col">
             <h5>PHQ-4: The FOUR-ITEM patient health questionaire</h5>

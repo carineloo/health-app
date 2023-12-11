@@ -71,29 +71,6 @@
     width: 49%;
 }
 
-#ca-submit {
-    display: flex;
-    justify-content: center;
-    margin: 0;
-}
-
-#ca-submit input[type="submit"] {
-    max-width: 27%;
-    margin: 0;
-    padding: .25rem;
-    background-color: white;
-    border: 3px solid #8b9db4;
-    transition: .5s;
-}
-
-#ca-submit input[type="submit"]:hover {
-    border: 3px solid #F45B69;
-}
-
-#ca-submit input[type="submit"]:active {
-    background-color: #8b9db4;
-}
-
 #load {
     padding-top: 60px;
     text-align: center;

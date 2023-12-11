@@ -27,3 +27,9 @@ ion-button {
   --transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
   font-size: 18px;
 }
+
+#error-msg {
+  color: red;
+  margin: 1rem;
+  text-align: center;
+}

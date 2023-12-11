@@ -28,6 +28,12 @@ ion-button {
   font-size: 18px;
 }
 
+#error-msg {
+  color: red;
+  margin: 1rem;
+  text-align: center;
+}
+
 /******************* nav bar *******************/
 .navbar {
   position: fixed;
@@ -169,7 +175,7 @@ ion-button {
 }
 
 .home-contents .row:first-child {
-  width: 65%;
+  width: 60%;
   padding: 5rem 3rem;
   background-color: gainsboro;
   border-radius: 5px;
@@ -177,6 +183,7 @@ ion-button {
 
 .home-contents .row:nth-child(2) {
   width: 30%;
+  height: 100%;
 }
 
 .home-top {
@@ -191,7 +198,7 @@ ion-button {
   font-weight: bold;
   font-size: 45px;
   text-align: left;
-  padding: 4rem 2rem 4rem 3rem;
+  padding: 4rem 3rem;
   border: none;
   border-radius: 5px;
   box-shadow: -27px 26px 6px 0px rgba(39, 41, 41, 0.3);
@@ -199,7 +206,6 @@ ion-button {
 }
 
 .row-button #main:hover {
-  color: #F45B69;
   box-shadow: none;
 }
 
@@ -280,7 +286,7 @@ ion-col:hover {
   transform: translate(-50%, -50%);
   background-color: #fefdfd;
   border-radius: 15px;
-  padding: 2rem;
+  padding: 1rem;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 
@@ -291,10 +297,10 @@ ion-col:hover {
 
 #close {
   border: none;
-  font-size: 22px;
-  transition: .5s;
+  font-size: 20px;
   background-color: #fefdfd;
   line-height: 23px;
+  transition: .2s;
 }
 
 #close:hover {
@@ -302,13 +308,12 @@ ion-col:hover {
 }
 
 #close span {
-  font-size: 19px;
+  font-size: 18px;
   display: flex;
   flex-direction: column;
 }
 
-.first-steps {
-  border: 1px dashed #f45b684d;
+.border {
   border-radius: 15px;
   margin: .5rem;
   padding: 1.5rem;
@@ -350,6 +355,12 @@ ion-col:hover {
   outline: none;
 }
 
+#change ion-button {
+  --background: rgba(252, 170, 177, 0.1);
+  --border-style: none;
+  text-transform: capitalize;
+}
+
 /******************* baseline: signup/ login *******************/
 .account-form h2 {
   text-align: center;
@@ -364,7 +375,7 @@ ion-col:hover {
 
 .account-form form input {
   margin: .75rem .25rem;
-  width: 60%;
+  width: 75%;
   padding: .75rem .5rem;
   border-radius: 8px;
   border: 1px solid #C5D8D1;
@@ -462,29 +473,6 @@ hr {
 
 #phone {
   width: 49%;
-}
-
-#ca-submit {
-  display: flex;
-  justify-content: center;
-  margin: 0;
-}
-
-#ca-submit input[type="submit"] {
-  max-width: 27%;
-  margin: 0;
-  padding: .25rem;
-  background-color: white;
-  border: 3px solid #8b9db4;
-  transition: .5s;
-}
-
-#ca-submit input[type="submit"]:hover {
-  border: 3px solid #F45B69;
-}
-
-#ca-submit input[type="submit"]:active {
-  background-color: #8b9db4;
 }
 
 #load {
@@ -894,13 +882,25 @@ th:first-child {
 }
 
 .roseQ {
-  margin: 3rem;
-  padding: 3rem 9rem;
+  padding: 5rem 8rem;
+  background-color: #12263A;
+  height: 125vh;
 }
 
 .rose-container {
   display: flex;
   flex-direction: column;
+}
+
+#rose-title {
+  color: white;
+}
+
+.rose-container .partA, .partB {
+  margin: 1rem;
+  padding: 2rem;
+  border-radius: 10px;
+  background-color: aliceblue;
 }
 
 .rose-question {

@@ -3,8 +3,10 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import { useCookies } from 'react-cookie'
 import { IonButton } from '@ionic/react';
+import CreateAccount from './CreateAccount';
+import Login from './Login';
 
-const Onboarding = ({ setShowBoarding, signUp }) => {
+const Onboarding = ({ setShowBoarding, signUp, setSignUp }) => {
   let nextId = 0
   const boarding = [
     {
@@ -52,7 +54,7 @@ const Onboarding = ({ setShowBoarding, signUp }) => {
   const [showSignUp, setShowSignUp] = useState(false)
   const [email, setEmail] = useState(null)
   const [password, setPassword] = useState(null)
-  const [confirmPassword, setComfirmPassword] = useState(null)
+  const [confirmPassword, setConfirmPassword] = useState(null)
   const [message, setMessage] = useState(null)
   const [cookies, setCookie, removeCookie] = useCookies(['user'])
 
@@ -79,8 +81,18 @@ const Onboarding = ({ setShowBoarding, signUp }) => {
   };
 
   // close button 
-  const handleClick = () => {
-    setShowBoarding(false)
+  const handleClick = () => setShowBoarding(false)
+
+  // show sign up 
+  const handleSignUp = () => {
+    setSignUp(true)
+    setShowSignUp(true)
+  }
+
+  // show login
+  const handleLogIn = () => {
+    setSignUp(false)
+    setShowSignUp(false)
   }
 
   // handle submit button, add new users to backend
@@ -93,7 +105,7 @@ const Onboarding = ({ setShowBoarding, signUp }) => {
       }
 
       // sign up, or login, pass to backend
-      const response = await axios.post('//'+process.env.REACT_APP_API_HOST+`/${signUp ? 'signup' : 'login'}`, { email, password })
+      const response = await axios.post('//' + process.env.REACT_APP_API_HOST + `/${signUp ? 'signup' : 'login'}`, { email, password })
 
       setCookie('AuthToken', response.data.token)
       setCookie('UserId', response.data.userId)
@@ -101,7 +113,7 @@ const Onboarding = ({ setShowBoarding, signUp }) => {
       const success = response.status === 201
 
       if (success && signUp) {
-        setMessage("Welcome")
+        setMessage("Welcome!")
         navigate('/baseline') // sign up success
       } else if (success && !signUp) {
         navigate('/myaccount') // log in success
@@ -122,9 +134,16 @@ const Onboarding = ({ setShowBoarding, signUp }) => {
         <div className="close-section">
           <button id="close" onClick={handleClick}>ⓧ <span>close</span></button>
         </div>
-        {signUp ? (
-          <div className="first-steps">
-            {!showSignUp && (
+        <div className="border">
+          {signUp ? (
+            showSignUp ? (
+              <CreateAccount
+                handleSubmit={handleSubmit}
+                setEmail={setEmail}
+                setPassword={setPassword}
+                setConfirmPassword={setConfirmPassword}
+                message={message} />
+            ) : (
               <>
                 <div className="instruction">
                   <h3>{boarding[current].questionText}</h3>
@@ -137,75 +156,20 @@ const Onboarding = ({ setShowBoarding, signUp }) => {
                     ))}
                   </div>
                 </div>
-              </>
-            )}
-            {showSignUp && (
-              <div className="account-form">
-                <h2>Create Account</h2>
-                <div id="center"><hr /></div>
-                <form onSubmit={handleSubmit}>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="Email"
-                    required={true}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                  <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    placeholder="Password"
-                    required={true}
-                    onChange={(e) => setPassword(e.target.value)}
-                  />
-                  <input
-                    type="password"
-                    id="check-password"
-                    name="check-password"
-                    placeholder="Confirm Password"
-                    required={true}
-                    onChange={(e) => setComfirmPassword(e.target.value)}
-                  />
-                  <div className="submit-btn">
-                    <IonButton type="submit">Submit</IonButton>
-                  </div>                  
-                  <p>{message}</p>
-                </form>
-              </div>
-            )}
-          </div>) : (
-          <div className="first-steps">
-            <div className="account-form">
-              <h2>Log In</h2>
-              <div id="center"><hr /></div>
-              <form onSubmit={handleSubmit}>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="Email"
-                  required={true}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-                <input
-                  type="password"
-                  id="password"
-                  name="password"
-                  placeholder="Password"
-                  required={true}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-                <div className="submit-btn">
-                  <IonButton type="submit">Submit</IonButton>
-                </div>
-                <p>{message}</p>
-              </form>
-              <p>Haven't made an account? Sign up <button>here</button></p>
-            </div>
+              </>)
+          ) : (
+            <Login
+              handleSubmit={handleSubmit}
+              setEmail={setEmail}
+              setPassword={setPassword}
+              message={message} />
+          )}
+          <div id="change">
+            <IonButton expand="block" fill="clear" onClick={signUp ? handleLogIn : handleSignUp}>
+              {signUp ? <div>Already a user? Log in here.</div> : <div>New User? Sign up here.</div>}
+            </IonButton>
           </div>
-        )}
+        </div>
       </div>
     </div>
   )
