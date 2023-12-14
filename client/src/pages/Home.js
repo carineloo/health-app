@@ -79,14 +79,23 @@ const Home = () => {
               </IonGrid>
             </motion.div>
           </div>
-          
+
           <div className="row row-button">
             <motion.div animate={{ opacity: 1 }} transition={{
               delay: 1, ease: "linear",
               duration: .5,
             }} initial={{ opacity: 0 }}>
-              {user && authToken ? <div id="main">Hey {user.first_name}, you are logged in!</div> : <button id="main" onClick={handleClick}>Click here to <em>BEGIN!</em></button>}
-              {/* when clicked, showBoarding is true, so this appears */}
+              <div className="main">
+                {user && authToken ? (
+                  <div className="borders">
+                    Hey {user.first_name}, you are logged in!
+                  </div>
+                ) : (
+                  <button className="borders" onClick={handleClick}>
+                    Click here to begin.
+                  </button>
+                )}
+              </div>
               {showBoarding && <Onboarding setShowBoarding={setShowBoarding} signUp={signUp} setSignUp={setSignUp} />}
             </motion.div>
           </div>

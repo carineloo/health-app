@@ -8,6 +8,7 @@ import EQ5D_Data from './pages/EQ5D_Data'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { useCookies } from 'react-cookie'
 import RoseQ from './pages/RoseQ'
+import Plots from './pages/Plots'
 
 const App = () => {
 
@@ -25,6 +26,7 @@ const App = () => {
                 {authToken && <Route path="/eq5d" element={<EQ5D_Form />} />}
                 {authToken && <Route path="/eq5d_data" element={<EQ5D_Data />} />}
                 {authToken && <Route path="/roseQ" element={<RoseQ />} />}
+                {authToken && <Route path="/plots" element={<Plots />} />}
             </Routes>
         </BrowserRouter>
     )

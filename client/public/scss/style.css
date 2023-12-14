@@ -192,21 +192,28 @@ ion-button {
   border-radius: 15px 30px;
 }
 
-.row-button #main {
-  color: #F45B69;
-  background-color: #12263A;
+.main {
   font-weight: bold;
   font-size: 45px;
-  text-align: left;
-  padding: 4rem 3rem;
-  border: none;
+  background-color: #12263A;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
   border-radius: 5px;
   box-shadow: -27px 26px 6px 0px rgba(39, 41, 41, 0.3);
   transition: .6s;
 }
 
-.row-button #main:hover {
+.row-button .main:hover {
   box-shadow: none;
+}
+
+.borders {
+  border: 1px solid white;
+  padding: 7rem 4rem;
+  color: #F45B69;
+  font-weight: bold;
+  background-color: #12263A;
 }
 
 ion-col {
@@ -931,5 +938,11 @@ th:first-child {
   .roseQ {
     padding: 1rem;
   }
+}
+
+.plots {
+  margin-top: 90px;
+  padding: 1rem;
+  font-size: 18px;
 }
 /*# sourceMappingURL=style.css.map */
