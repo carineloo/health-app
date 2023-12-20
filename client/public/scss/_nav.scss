@@ -31,16 +31,16 @@
     margin: 0 2px 0 1px;
 }
 
-#log-button {
-    margin: 0 15px;
-    padding: 0 10px;
-    color: black;
-    background-color: #8b9db4;
-    border-radius: 8px;
-    transition: .5s;
-}
+.navbar-nav button, #log-button {
+  margin: 0 15px;
+  padding: 0 10px;
+  color: black;
+  background-color: #8b9db4;
+  border-radius: 8px;
+  transition: .3s;
+}ß
 
-#log-button:hover {
+.navbar-nav button:hover, #log-button:hover {
     background-color: #F45B69;
 }
 
@@ -64,10 +64,12 @@
     font-style: italic;
 }
 
+
 /******************* responsive interfaces *******************/
 
 
 /* lg size breakpoint */
+
 @media (max-width: 991px) {
     .navbar {
         padding-left: 2rem;
@@ -92,7 +94,6 @@
         margin-left: 0;
     }
 }
-
 
 @media (max-width: 690px) {
     nav a {

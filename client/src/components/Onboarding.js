@@ -59,21 +59,18 @@ const Onboarding = ({ setShowBoarding, signUp, setSignUp }) => {
   const [cookies, setCookie, removeCookie] = useCookies(['user'])
 
   let navigate = useNavigate()
-  console.log(email, password, confirmPassword)
 
   // handle flow of onboarding
   const handleAnswer = (isTrue) => {
     if (isTrue) {
-      // Move forward when "Next" is clicked
-      const next = current + 1;
+      const next = current + 1; // move forward
       if (next < boarding.length) {
         setCurrent(next);
       } else if (boarding.length) {
         setShowSignUp(true) // show signup
       }
     } else {
-      // Move backward when "Back" is clicked
-      const prev = current - 1;
+      const prev = current - 1; // move back
       if (prev >= 0) {
         setCurrent(prev);
       }
@@ -81,7 +78,10 @@ const Onboarding = ({ setShowBoarding, signUp, setSignUp }) => {
   };
 
   // close button 
-  const handleClick = () => setShowBoarding(false)
+  const handleClick = () => {
+    setShowBoarding(false)
+    document.getElementById("overlay").style.display = "none";
+  }
 
   // show sign up 
   const handleSignUp = () => {

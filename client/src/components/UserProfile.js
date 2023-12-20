@@ -80,7 +80,7 @@ const UserProfile = ({ handleClick }) => {
             <DisplayEQ5D />
           </section>}
           {section === "phq4" && <section className="col">
-            <h5>PHQ-4: The FOUR-ITEM patient health questionaire</h5>
+            <h5>PHQ-4: The FOUR-ITEM health questionaire</h5>
             <PHQ4 />
           </section>}
         </div>

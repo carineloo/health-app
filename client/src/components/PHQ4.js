@@ -50,7 +50,7 @@ const PHQ4 = () => {
       // extract statement: rating pairs
       const itemsRated = survey.map(({ statement, rating }) => ({ statement, rating }));
       // send the data to the backend
-      const response = await axios.post('//'+process.env.REACT_APP_API_HOST+'/phq4', { userId, itemsRated, totalScore: getGrandTotal() });
+      const response = await axios.post('//' + process.env.REACT_APP_API_HOST + '/phq4', { userId, itemsRated, totalScore: getGrandTotal() });
       if (response.status === 200) {
         setMessage("Thank you, your response has been submitted.")
       }
@@ -74,7 +74,7 @@ const PHQ4 = () => {
           </tr>
         </thead>
         <tbody>
-          {survey.map((item) => (
+          {survey.map((item, index) => (
             <tr key={item.id}>
               <td>{item.id}</td>
               <td>{item.statement}</td>
@@ -83,25 +83,32 @@ const PHQ4 = () => {
                   <button
                     onClick={() => handleChange(item.id, rating)}
                     style={{
-                      backgroundColor: item.rating === rating ? '#c5d8d1' : '#fcf4f4',
-                    }}> {rating}
+                      backgroundColor: index % 2 === 0 ? '#f2f2f2' : '#ffffff',
+                      borderColor: item.rating === rating ? '#F45B69' : '#fcf4f4',
+                    }}
+                  >
+                    {rating}
                   </button>
                 </td>
               ))}
             </tr>
           ))}
         </tbody>
-        <tfoot>
+        <tfoot> 
           <tr>
-            <td colSpan={2}>Totals:</td>
+            <td colSpan={2}>Summary:</td>
             {[0, 1, 2, 3].map((rating) => (
-              <td key={rating}>
+              <td key={rating} style={{
+                backgroundColor: '#f2f2f2'
+              }}>
                 {selected ? getColumnTotal(rating) : ''}
               </td>
             ))}
           </tr>
           <tr>
-            <td colSpan={2}>Total Score:</td>
+            <td colSpan={2} style={{
+              backgroundColor: '#ffffff'
+            }}>Total Score:</td>
             <td colSpan={4}>
               {selected ? getGrandTotal() : ''}
             </td>

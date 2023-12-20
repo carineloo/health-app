@@ -17,6 +17,7 @@ const Nav = ({ authToken, setShowBoarding, showBoarding, setSignUp }) => {
   const handleClick = () => {
     setShowBoarding(true)
     setSignUp(false) // logging in
+    document.getElementById("overlay").style.display = "block";
   }
 
   return (
@@ -46,8 +47,8 @@ const Nav = ({ authToken, setShowBoarding, showBoarding, setSignUp }) => {
 
           {!authToken &&
             <button
-              className="nav-item nav-link"
-              id="log-button"
+              className="nav-item nav-link "
+              id="log-button overlay"
               onClick={handleClick}
               disabled={showBoarding}>
               Log in<i className="fa-regular fa-user fa icon"></i>

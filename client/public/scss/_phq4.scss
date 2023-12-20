@@ -1,49 +1,68 @@
 .phq4 {
-  margin: 1rem 0;
-  font-size: 18px;
+    margin: 1rem 0;
+    font-size: 18px;
 }
 
 .phq4 th {
-  text-align: center;
-}
-
-th:first-child{
-text-align: left;
-}
-
-.phq4 th {
-  width: 11%;
+    text-align: center;
+    font-weight: normal;
 }
 
 .phq4 th:first-child {
-  width: 46%;
+    text-align: left;
+}
+
+.phq4 th {
+    width: 11%;
+}
+
+.phq4 th:first-child {
+    width: 46%;
 }
 
 .phq4 tbody td:first-child {
-  width: 5%;
-  text-align: center;
+    width: 5%;
+    text-align: center;
 }
 
-.phq4 td button {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid black;
+.phq4 tbody tr:nth-child(odd) {
+    background-color: #f2f2f2;
+    /* Set the background color for odd rows */
 }
 
-.phq4 td button:hover {
-  background-color: aliceblue;
+.phq4 tbody tr:nth-child(even) {
+    background-color: #ffffff;
+    /* Set the background color for even rows */
+}
+
+.phq4 tbody td button {
+    width: 100%;
+    padding: 10px;
+}
+
+.phq4 th,
+.phq4 td {
+    border: 1px solid #dddddd;
+    padding: 8px;
 }
 
 .phq4 tfoot td {
-  text-align: center;
-  font-weight: bold;
-  padding: 10px;
-  border: 3px solid white;
-  background-color: #fcf4f4;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid white;
+}
+
+.phq4 tfoot td:first-child {
+    background-color: #f2f2f2;
+}
+
+.phq4 tfoot td:last-child {
+    background-color: #ffffff;
+    margin-bottom: 1rem;
 }
 
 .phq4 p {
-  color: green;
-  text-align: center;
-  margin: 1rem;
+    margin: 1rem;
+    color: green;
+    text-align: center;
 }

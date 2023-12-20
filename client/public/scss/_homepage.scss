@@ -34,27 +34,27 @@
 }
 
 .main {
-  font-weight: bold;
-  font-size: 45px;
-  background-color: #12263A;
-  display: flex;
-  align-items: center;
-  padding: 1rem;
-  border-radius: 5px;
-  box-shadow: -27px 26px 6px 0px rgba(39, 41, 41, 0.3);
-  transition: .6s;
+    font-weight: bold;
+    font-size: 45px;
+    background-color: #12263A;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: -27px 26px 6px 0px rgba(39, 41, 41, 0.3);
+    transition: .6s;
 }
 
 .row-button .main:hover {
-  box-shadow: none;
+    box-shadow: none;
 }
 
 .borders {
-  border: 1px solid white;
-  padding: 7rem 4rem;
-  color: #F45B69;
-  font-weight: bold;
-  background-color: #12263A;
+    border: 1px solid white;
+    padding: 6rem 3rem;
+    color: #F45B69;
+    font-weight: bold;
+    background-color: #12263A;
 }
 
 ion-col {
@@ -77,6 +77,18 @@ ion-col:hover {
     -webkit-box-shadow: -27px 26px 6px 0px rgba(39, 41, 41, 0.1);
     -moz-box-shadow: -27px 26px 6px 0px rgba(39, 41, 41, 0.1);
     box-shadow: -27px 26px 6px 0px rgba(39, 41, 41, 0.1);
+}
+
+#overlay {
+    position: fixed;
+    display: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 0;
+    cursor: pointer;
 }
 
 

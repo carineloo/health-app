@@ -38,6 +38,7 @@ const Home = () => {
   const handleClick = () => {
     setShowBoarding(true)
     setSignUp(true) // signing up
+    document.getElementById("overlay").style.display = "block";
   }
 
   const toTraining = () => {
@@ -72,7 +73,7 @@ const Home = () => {
             }} initial={{ opacity: 0 }}>
               <IonGrid fixed={true}>
                 <IonRow className='ion-no-padding'>
-                  <IonCol size="12" sizeMd='3'>{authToken ? <div onClick={toTraining}>Take me to the training videos. </div> : <div onClick={handleClick}>Log in to view training videos. </div>}</IonCol>
+                  <IonCol size="12" sizeMd='3'>{authToken ? <div onClick={toTraining}>Take me to the training videos.</div> : <div onClick={handleClick}>Training videos <br/> (Log in) </div>}</IonCol>
                   <IonCol size="12" sizeMd='4' offset-md="1">Report symptoms</IonCol>
                   <IonCol size="12" sizeMd='3' offset-md="1">Feedback</IonCol>
                 </IonRow>
@@ -88,14 +89,16 @@ const Home = () => {
               <div className="main">
                 {user && authToken ? (
                   <div className="borders">
-                    Hey {user.first_name}, you are logged in!
+                    Hey {user.first_name}, you're logged in!
                   </div>
                 ) : (
                   <button className="borders" onClick={handleClick}>
-                    Click here to begin.
+                    Click here to Begin.
                   </button>
                 )}
               </div>
+              <div id="overlay"></div>
+              {/* <button onClick={on}>Show Overlay</button> */}
               {showBoarding && <Onboarding setShowBoarding={setShowBoarding} signUp={signUp} setSignUp={setSignUp} />}
             </motion.div>
           </div>

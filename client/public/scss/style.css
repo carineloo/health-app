@@ -1,3 +1,5 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 * {
   box-sizing: border-box;
   margin: 0;
@@ -6,7 +8,7 @@
 
 body {
   margin: 0;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Atkinson Hyperlegible', sans-serif;
   background-color: #F4EDEA;
   overflow-x: none;
 }
@@ -66,16 +68,17 @@ ion-button {
   margin: 0 2px 0 1px;
 }
 
-#log-button {
+.navbar-nav button, #log-button {
   margin: 0 15px;
   padding: 0 10px;
   color: black;
   background-color: #8b9db4;
   border-radius: 8px;
-  transition: .5s;
+  transition: .3s;
 }
 
-#log-button:hover {
+ß
+.navbar-nav button:hover, #log-button:hover {
   background-color: #F45B69;
 }
 
@@ -210,7 +213,7 @@ ion-button {
 
 .borders {
   border: 1px solid white;
-  padding: 7rem 4rem;
+  padding: 6rem 3rem;
   color: #F45B69;
   font-weight: bold;
   background-color: #12263A;
@@ -234,6 +237,18 @@ ion-col {
 
 ion-col:hover {
   box-shadow: -27px 26px 6px 0px rgba(39, 41, 41, 0.1);
+}
+
+#overlay {
+  position: fixed;
+  display: none;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 0;
+  cursor: pointer;
 }
 
 /* iPad portrait */
@@ -845,9 +860,10 @@ img {
 
 .phq4 th {
   text-align: center;
+  font-weight: normal;
 }
 
-th:first-child {
+.phq4 th:first-child {
   text-align: left;
 }
 
@@ -864,28 +880,46 @@ th:first-child {
   text-align: center;
 }
 
-.phq4 td button {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid black;
+.phq4 tbody tr:nth-child(odd) {
+  background-color: #f2f2f2;
+  /* Set the background color for odd rows */
 }
 
-.phq4 td button:hover {
-  background-color: aliceblue;
+.phq4 tbody tr:nth-child(even) {
+  background-color: #ffffff;
+  /* Set the background color for even rows */
+}
+
+.phq4 tbody td button {
+  width: 100%;
+  padding: 10px;
+}
+
+.phq4 th,
+.phq4 td {
+  border: 1px solid #dddddd;
+  padding: 8px;
 }
 
 .phq4 tfoot td {
   text-align: center;
-  font-weight: bold;
   padding: 10px;
-  border: 3px solid white;
-  background-color: #fcf4f4;
+  border: 1px solid white;
+}
+
+.phq4 tfoot td:first-child {
+  background-color: #f2f2f2;
+}
+
+.phq4 tfoot td:last-child {
+  background-color: #ffffff;
+  margin-bottom: 1rem;
 }
 
 .phq4 p {
+  margin: 1rem;
   color: green;
   text-align: center;
-  margin: 1rem;
 }
 
 .roseQ {
