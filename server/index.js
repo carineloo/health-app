@@ -118,7 +118,8 @@ app.get('/user', async (req, res) => {
 app.put('/user', async (req, res) => {
   const client = new MongoClient(uri)
   const formData = req.body.formData
-
+  const date = new Date().toISOString()
+  
   try {
     await client.connect()
     const database = client.db('app-data')
@@ -140,6 +141,7 @@ app.put('/user', async (req, res) => {
         address_street: formData.address_street,
         address_city: formData.address_city,
         address_country: formData.address_country,
+        date: date,
         avatar: formData.avatar
       },
     }
@@ -212,6 +214,7 @@ app.post('/eq5d', async (req, res) => {
   const client = new MongoClient(uri)
   const userId = req.body.userId
   const formData = req.body.formData
+  const sliderValue = req.body.slider
   const dateCompleted = new Date().toISOString()
 
   try {
@@ -219,7 +222,7 @@ app.post('/eq5d', async (req, res) => {
     const database = client.db('app-data')
     const eq5d = database.collection('eq5d')
 
-    const struct = { user_id: userId, eq5d: formData, date: dateCompleted }
+    const struct = { user_id: userId, eq5d: formData, scale: sliderValue, date: dateCompleted }
     const insertForm = await eq5d.insertOne(struct)
     res.send(insertForm)
   } finally {

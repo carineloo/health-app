@@ -43,7 +43,6 @@ const DisplaySymptoms = () => {
     if (rose && rose.length === 0 && symptom && symptom[0].symptoms[0].response.toLowerCase() === 'yes') {
       navigate('/roseQ')
     }
-
   }, [symptom, rose]);
 
   return (

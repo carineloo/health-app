@@ -3,10 +3,15 @@ import { useCookies } from 'react-cookie'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { IonButton } from '@ionic/react';
+import Slider from '@mui/material/Slider';
+import Box from '@mui/material/Box';
 
 const EQ5D_Form = () => {
 
   const [cookies] = useCookies(['user'])
+  const [slider, setSlider] = useState(50);
+  const userId = cookies.UserId
+  let navigate = useNavigate()
   const [formData, setFormData] = useState({
     mobility: [
       { statement: "I have no problems in walking about", selected: false },
@@ -45,8 +50,10 @@ const EQ5D_Form = () => {
     ],
   });
 
-  const userId = cookies.UserId
-  let navigate = useNavigate()
+  // Handler function to update the slider value
+  const handleSlider = (e, newValue) => {
+    setSlider(newValue);
+  };
 
   // filtering to check for array and mapping to get only the selected statement
   const filteredForm = Object.keys(formData).reduce((acc, key) => {
@@ -58,9 +65,10 @@ const EQ5D_Form = () => {
     console.log('submitted')
     e.preventDefault()
     try {
-      const response = await axios.post('//'+process.env.REACT_APP_API_HOST+'/eq5d', {
+      const response = await axios.post('//' + process.env.REACT_APP_API_HOST + '/eq5d', {
         userId,
-        formData: filteredForm
+        formData: filteredForm,
+        slider
       })
       const success = response.status === 200
       if (success) navigate('/myaccount')
@@ -163,6 +171,20 @@ const EQ5D_Form = () => {
                 </div>
               ))}
             </div>
+          </div>
+
+          <div className="slider">
+            <h5>Lastly, please rate how you feel on the scale of 0 - 100.</h5>
+            <Box sx={{ width: 600 }}>
+              <Slider defaultValue={50}
+                value={slider}
+                onChange={handleSlider}
+                aria-label="Scale"
+                valueLabelDisplay="on"
+              />
+              {/* You can access the current value using `sliderValue` */}
+              <p>Current Value: {slider}</p>
+            </Box>
           </div>
 
           <div className="submit-btn">

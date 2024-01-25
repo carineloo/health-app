@@ -17,7 +17,7 @@ const UserProfile = ({ handleClick }) => {
 
   const getUser = async () => {
     try {
-      const response = await axios.get('//'+process.env.REACT_APP_API_HOST+'/user', {
+      const response = await axios.get('//' + process.env.REACT_APP_API_HOST + '/user', {
         params: { userId }
       })
       setUser(response.data)
@@ -40,8 +40,8 @@ const UserProfile = ({ handleClick }) => {
       <div className="my-contents">
         <IonList inset={true} lines="full">
           <IonItem>
-          {user && <IonLabel onClick={() => handleSection("main")} className={section === "main" ? "active" : ""}
-            >Welcome, {user.first_name}</IonLabel>}
+            {user && <IonLabel onClick={() => handleSection("main")} className={section === "main" ? "active" : ""}
+            ><strong>Welcome, {user.first_name}</strong></IonLabel>}
           </IonItem>
           <IonItem>
             <IonLabel onClick={() => handleSection("details")} className={section === "details" ? "active" : ""}
@@ -59,10 +59,12 @@ const UserProfile = ({ handleClick }) => {
         </IonList>
 
         <div className="container">
-          {/* {section === null && section === "main"} */}
           {section === "main" && <section className="col">
             <h5>Accounts page</h5>
             {user && <p>Hi, {user.first_name}. You can view your access you digital health on the left!</p>}
+            {/* {roseCheck && (
+              <p>Since you mentioned you have chest pains, you will need to complete a questionnaire. Please click on current symptoms.</p>
+            )} */}
           </section>}
           {section === "details" && <section className="col">
             <h5>Your details</h5>

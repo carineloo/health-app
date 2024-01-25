@@ -511,15 +511,15 @@ hr {
   padding: 2rem 0 0 4rem;
 }
 
+.myaccount h5 {
+  font-weight: bold;
+  font-size: 21px;
+}
+
 .my-contents {
   display: flex;
   justify-content: center;
   padding: 0 3rem;
-}
-
-.myaccount h5 {
-  font-weight: bold;
-  font-size: 21px;
 }
 
 .my-contents section {
@@ -531,6 +531,10 @@ hr {
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 10px;
   font-size: 16px;
+}
+
+.my-contents .active {
+  color: #F45B69;
 }
 
 .columns {
@@ -583,10 +587,6 @@ hr {
 ion-list.list-inset {
   overflow: visible;
   cursor: pointer;
-}
-
-.my-contents .active {
-  color: #F45B69;
 }
 
 /******************* chatbot *******************/
@@ -664,7 +664,7 @@ img {
 
 /******************* eq5d *******************/
 .eq5d .container {
-  padding: 1.5rem 0;
+  padding: 3rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -787,6 +787,12 @@ img {
 
 .user-eq5d li:nth-child(5) {
   background-color: #ff785a5f;
+}
+
+.slider h5 {
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 3.5rem;
 }
 
 /******************* eq5d: user responses *******************/
@@ -937,8 +943,8 @@ img {
   color: white;
 }
 
-.rose-container .partA, .partB {
-  margin: 1rem;
+.partA, .partB {
+  margin: 1rem 0;
   padding: 2rem;
   border-radius: 10px;
   background-color: aliceblue;

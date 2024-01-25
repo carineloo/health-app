@@ -43,7 +43,7 @@ const RoseQ = () => {
   return (
     <div className="roseQ">
       <div className="rose-container">
-        <h3 id="rose-title">Please answer the questions below for your chest pain symptom.</h3>
+        <h3 id="rose-title">Since you answered "yes" to chest pains earlier, please complete this form to provide your doctor with more information.</h3>
 
         <div className="partA">
           <h3>Part A:</h3>
