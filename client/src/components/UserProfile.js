@@ -51,7 +51,7 @@ const UserProfile = ({ handleClick }) => {
             <IonLabel onClick={() => handleSection("symptoms")} className={section === "symptoms" ? "active" : ""}>Current symptoms</IonLabel>
           </IonItem>
           <IonItem>
-            <IonLabel onClick={() => handleSection("eq5d")} className={section === "eq5d" ? "active" : ""}>EQ5D today</IonLabel>
+            <IonLabel onClick={() => handleSection("eq5d")} className={section === "eq5d" ? "active" : ""}>EQ5D</IonLabel>
           </IonItem>
           <IonItem>
             <IonLabel onClick={() => handleSection("phq4")} className={section === "phq4" ? "active" : ""}>Mental Health</IonLabel>
@@ -78,7 +78,7 @@ const UserProfile = ({ handleClick }) => {
             <DisplaySymptoms />
           </section>}
           {section === "eq5d" && <section className="col">
-            <h5>Your EQ5D today</h5>
+            <h5>Your EQ5D</h5>
             <DisplayEQ5D />
           </section>}
           {section === "phq4" && <section className="col">

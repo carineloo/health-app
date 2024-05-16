@@ -7,6 +7,8 @@ const { v1: uuidv1 } = require('uuid')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const cors = require('cors')
+const cron = require('node-cron');
+const nodemailer = require('nodemailer')
 
 const app = express()
 app.use(cors())
@@ -16,11 +18,97 @@ app.get('/', (req, res) => {
   res.json('Hello Harper!')
 })
 
+// IMPORTANT: this notifications prompt users to complete forms for each day in the 14-day period. For the sake of testing, the prompts will be sent every second in a 14-second period. 
+
+const sendEmailPrompt = async (email, subject, text) => {
+  try {
+    // create a Nodemailer transporter using email service provider's credentials
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: 'carine3338@gmail.com',
+        pass: 'gfjynvwhyzvplrba',
+      },
+    });
+
+    // the email content
+    const mailOptions = {
+      from: 'Harper, Your Digital Health Assistant',
+      to: email,
+      subject,
+      text: `${text}.`,
+    };
+
+    // sends the email
+    const info = await transporter.sendMail(mailOptions);
+
+    console.log(`${subject} prompt sent:`, info.response);
+  } catch (error) {
+    console.error(`Error sending ${subject} prompt:`, error.message);
+  }
+};
+
+// day 2, 3, 4, 5, 6, 8, 9, 10. 11, 12, 13
+const sendSymptomsPrompt = async (email, elapsedTime) => {
+  await sendEmailPrompt(email, `Day ${elapsedTime} Symptoms Form`, 'You may now complete the Symptoms form');
+};
+// day 7
+const sendEQ5DPrompts = async (email, elapsedTime) => {
+  await sendEmailPrompt(email, `Day ${elapsedTime} Symptoms and EQ5D Forms`, 'You may now complete the Symptoms and EQ5D form');
+};
+// day 1
+const sendPHQ4WithEQ5D1 = async (email, elapsedTime) => {
+  await sendEmailPrompt(email, `Day ${elapsedTime} Welcome! You have some new tasks to complete: EQ5D, PHQ4 Forms`, 'Welcome to your Day 1 of your 14-day journey with Harper. You may now complete the EQ5D, and PHQ4 mental forms');
+};
+// day 14 
+const sendPHQ4WithEQ5D = async (email, elapsedTime) => {
+  await sendEmailPrompt(email, `Day ${elapsedTime} Final Symptoms, EQ5D, PHQ4 Forms`, 'Congrats on making to the final day! You may now complete the Symptoms, EQ5D, and PHQ4 mental forms.');
+};
+
+let scheduledTask = null;
+let cronStartTime = null;
+
+// route to start the cron timer
+app.post('/start-cron', (req, res) => {
+  const email = req.body.userEmail
+
+  // stop the existing cron task if it exists
+  if (scheduledTask) {
+    scheduledTask.stop();
+    scheduledTask = null;
+  }
+
+  cronStartTime = new Date();
+  scheduledTask = cron.schedule('* * * * * *', async () => {
+    // calculate the seconds elapsed since the cron job started (minutes: 60000)
+    const elapsedTime = Math.floor(((new Date() - cronStartTime) / 1000) +1);
+
+    switch (elapsedTime) {
+      case 1:
+        await sendPHQ4WithEQ5D1(email, elapsedTime);
+        break;
+      case 7:
+        await sendEQ5DPrompts(email, elapsedTime);
+        break;
+      case 14:
+        await sendPHQ4WithEQ5D(email, elapsedTime);
+        // stop the cron job after 14 minutes
+        scheduledTask.stop();
+        scheduledTask = null;
+        break;
+      default:
+        if (elapsedTime < 15) {
+          await sendSymptomsPrompt(email, elapsedTime);
+        }
+    }
+  });
+  res.status(200).json({ message: 'Cron timer started successfully' });
+});
+
 // sign up: onboarding
 app.post('/signup', async (req, res) => {
   const client = new MongoClient(uri)
   const { email, password } = req.body
-  // console.log(req.body)
 
   const generateId = uuidv1()
   const hashPw = await bcrypt.hash(password, 10) // hash the pw with salt round
@@ -119,7 +207,7 @@ app.put('/user', async (req, res) => {
   const client = new MongoClient(uri)
   const formData = req.body.formData
   const date = new Date().toISOString()
-  
+
   try {
     await client.connect()
     const database = client.db('app-data')
